@@ -33,6 +33,15 @@ class BookProvider {
                 return bookFactory.makeFromDB(results[0]);
             });
     }
+
+    provideAll() {
+        return this.connection.select().from('books')
+            .then( booksData => {
+                let books;
+                books = booksData.map( booksRaw => bookFactory.makeFromDB(booksRaw));
+                return books;
+            });
+    }
 }
 
 module.exports = BookProvider;

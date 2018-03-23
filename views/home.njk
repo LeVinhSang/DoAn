@@ -1,0 +1,132 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+<section>
+    <div style="
+    margin-top: -50px;
+    background-image: url(https://www.bma.org.uk/~/asset/4/29766.ashx?format=8|10000);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 300px;
+    ">
+
+    </div>
+</section>
+
+<div class="modal fade" id="bookModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create Borrower</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-group" id="add-borrower" method="post" action="/book">
+                    <div class="form-group">
+                        <label>Title:</label>
+                        <input class="form-control" name="title" placeholder="title...">
+                    </div>
+                    <div class="form-group">
+                        <label>Author:</label>
+                        <input class="form-control" name="author" placeholder="author...">
+                    </div>
+                    <div class="form-group">
+                        <label>Images:</label>
+                        <input class="form-control" name="images" placeholder="images...">
+                    </div>
+                    <div class="form-group">
+                        <label>Amount:</label>
+                        <input type='date' class="form-control" name="amount" placeholder="amount...">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------------------------------------------------------------------------------------------------------------------->
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create Book</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-group" id="add-book" method="post" action="/borrower">
+                    <div class="form-group">
+                        <label>Student Code:</label>
+                        <input class="form-control" name="student_code" placeholder="student code...">
+                    </div>
+                    <div class="form-group">
+                        <label>Student Name:</label>
+                        <input class="form-control" name="student_name" placeholder="student name...">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone:</label>
+                        <input class="form-control" name="phone" placeholder="Phone...">
+                    </div>
+                    <div class="form-group">
+                        <label>Name Book:</label>
+                        <select class="form-control" id="list-book" name="book_id">
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date Return:</label>
+                        <input type='date' class="form-control" name="date_return" placeholder="date return...">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------------------------------------------------------------------------------------------------------------------->
+
+<div class="container-fluid">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel-body">
+            <section id="all">
+                <ul id="list-borrower" class="list-group">
+                </ul>
+            </section>
+            <script id="borrowerTemplate" type="text/html">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action" id="get-detail" >
+                        <p><img width="100px" height="100px" src=":bookImages:"/></p>
+                        <a href="#" id="show-detail" role="button" aria-expanded="false">:borrowerStudent_code:</a>
+                        <p>:borrowerStudent_name:</p>
+                        <p>:borrowerPhone:       </p>
+                        <p>:bookTitle:           </p>
+                        <p>:borrowDate:          </p>
+                        <p>:ReturnDate:        </p>
+                        <a href="/:name::id" id="edit" class="btn btn-primary">Edit</a>
+                        <a href="/delete/:name::id" class="btn btn-danger">Delete</a>
+                    </li>
+                </ul>
+            </script>
+
+            <script id="bookTemplate" type="text/html">
+                <option value=":book.id:">:book.title:</option>
+            </script>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<script src="/javascript/script.js"></script>

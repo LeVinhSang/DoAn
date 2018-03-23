@@ -54,6 +54,18 @@ class BorrowerBook {
 
     /**
      *
+     * @return {string|*}
+     */
+    getDateBorrow() {
+        return this.date_borrow;
+    }
+
+    getDateReturn() {
+        return this.date_return;
+    }
+
+    /**
+     *
      * @param {int} id
      */
     setId(id) {
@@ -75,6 +87,18 @@ class BorrowerBook {
      */
     setBook(book) {
         this.book = book;
+    }
+
+    /**
+     *
+     * @param {string} date_borrow
+     */
+    setDateBorrow(date_borrow) {
+        this.date_borrow = date_borrow;
+    }
+
+    setDateReturn(date_return) {
+        this.date_return = date_return;
     }
 }
 

@@ -1,0 +1,55 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel-body">
+            <section id="all">
+                <ul id="list-borrower" class="list-group">
+                </ul>
+            </section>
+            <section>
+                <form class="form-group" id="edit-borrower" method="post" action="/edit/borrower/{{borrower.getId()}}">
+                    <div class="form-group">
+                        <label>Student Code:</label>
+                        <input value="{{borrower.getStudent_code()}}" class="form-control" name="student_code" placeholder="student code">
+                    </div>
+                    <div class="form-group">
+                        <label>Student Name:</label>
+                        <input value="{{borrower.getStudent_name()}}" class="form-control" name="student_name" placeholder="student name">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone:</label>
+                        <input value="{{borrower.getPhone()}}" type="number" class="form-control" name="phone" placeholder="phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Book Name:</label>
+                        <select class="form-control" id="list-publisher" name="book_id">
+                            <option value="">Null</option>
+                            {% for book in books %}
+                            {% if borrower.getBook().getId() === book.getId() %}
+                            <option value="{{borrower.getBook().getId()}}" selected>{{borrower.getBook().getTitle()}}</option>
+                            {% else %}
+                            <option value="{{book.getId()}}">{{book.getTitle()}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date Borrow:</label>
+                        <input value="{{borrower.getDateBorrow()}}" class="form-control" name="date-borrow" placeholder="date borrow">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Date Return:</label>
+                        <input value="{{borrower.getDateReturn()}}" type="date" class="form-control" name="date-return" placeholder="date return">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock %}

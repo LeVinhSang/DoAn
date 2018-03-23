@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
             // Inserts seed entries
             return knex('borrow_books').insert([
                 {id: 1, student_code: '1400618', student_name:'Sang', phone:'0189', book_id:1,
-                    date_borrow: new Date(), deleted_at: '0'},
+                    date_borrow: new Date(), date_return: 0, deleted_at: '0'},
             ]);
         });
 };

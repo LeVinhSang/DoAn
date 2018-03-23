@@ -8,12 +8,24 @@ const BorrowerRepository      = require('./src/borrow-book/borrower-book-reposit
 const SearcherBorrowers       = require('./src/searching-service/borrower/searcher');
 const BorrowerFactory         = require('./src/borrow-book/borrower-factory');
 const SearcherBook            = require('./src/searching-service/book/searcher');
+const nunjucks                = require('nunjucks');
+const BookProvider            = require('./src/book/book-provider');
 
 
 app.set('books.repo', new BookRepository(knex));
 app.set('borrower.searcher', new SearcherBorrowers(knex, new BorrowerFactory()));
 app.set('books.searcher', new SearcherBook(knex));
 app.set('borrowers.repo', new BorrowerRepository(knex));
+app.set('books.provider', new BookProvider(knex));
+
+
+app.use(express.static('public'));
+
+nunjucks.configure('views', {
+    autoescape: true,
+    express: app
+});
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
