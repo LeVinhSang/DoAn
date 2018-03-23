@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
         .then(function () {
             // Inserts seed entries
             return knex('books').insert([
-                {title: 'Dragon Ball ',author: 'Akira', images:'',amount: 10, genre: 'develop'}
+                {title: 'Dragon Ball ',author: 'Akira', images:'',amount: 10, genre: 'develop', deleted_at: '0'}
             ]);
         });
 };

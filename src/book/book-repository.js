@@ -19,7 +19,8 @@ class BookRepository {
             title: book.getTitle(),
             author: book.getAuthor(),
             images: book.getImages(),
-            genre: book.getGenre()
+            genre: book.getGenre(),
+            deleted_at: 0
         });
     }
 

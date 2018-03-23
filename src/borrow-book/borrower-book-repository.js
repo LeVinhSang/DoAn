@@ -21,7 +21,9 @@ class BorrowerBookRepository {
             student_name: borrower.getStudent_name(),
             phone: borrower.getPhone(),
             book_id: borrower.getBook().getId(),
-            date_borrow: new Date()
+            date_borrow: new Date(),
+            deleted_at: 0,
+            date_return: 0
         });
     }
 

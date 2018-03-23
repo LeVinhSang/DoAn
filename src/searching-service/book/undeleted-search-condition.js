@@ -6,7 +6,7 @@ class UndeletedSearchCondition {
      * @return {Book[]}
      */
     describe(sqlQuery) {
-        return sqlQuery.where({'borrow_books.deleted_at': null})
+        return sqlQuery.where({'books.deleted_at': 0})
     }
 }
 

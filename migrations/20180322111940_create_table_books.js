@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
         table.string('images');
         table.integer('amount');
         table.string('genre');
-        table.date('deleted_at');
+        table.string('deleted_at');
     })
 };
 

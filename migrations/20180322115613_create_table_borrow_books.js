@@ -7,8 +7,8 @@ exports.up = function(knex, Promise) {
         table.integer('phone');
         table.integer('book_id');
         table.date('date_borrow');
-        table.date('date_return');
-        table.date('deleted_at');
+        table.string('date_return');
+        table.string('deleted_at');
     })
 };
 

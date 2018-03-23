@@ -1,5 +1,5 @@
-const Connection  = require('../../database/knex-connection');
-const BorrowFactory = require('../borrow-book/borrower-factory');
+const Connection  = require('../../../database/knex-connection');
+const BorrowFactory = require('../../borrow-book/borrower-factory');
 
 class Searcher {
 
@@ -26,7 +26,7 @@ class Searcher {
                 'books.author', 'books.images', 'books.genre')
             .from('borrow_books')
             .leftJoin('books', function () {
-                this.on('book_id', '=', 'books.id')
+                this.on('book_id', '=', 'books.id').on('borrow_books.deleted_at', '=', 'books.deleted_at')
             });
 
         condition.describe(sqlQuery);

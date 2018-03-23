@@ -21,6 +21,12 @@ class BookController {
         });
     }
 
+    search(req, res, next) {
+        req.app.get('books.searcher').search(req.condition)
+            .then( books => res.json(books))
+            .catch(next)
+    }
+
 
 }
 
