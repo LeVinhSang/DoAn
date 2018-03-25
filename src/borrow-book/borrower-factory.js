@@ -15,6 +15,8 @@ class BorrowerFactory {
     makeBorrower(borrowerRaw) {
         let borrower = new BorrowerBook(borrowerRaw.student_code, borrowerRaw.student_name);
         borrower.setPhone(borrowerRaw.phone);
+        borrower.setDateReturn(borrowerRaw.date_return);
+        borrower.setDateBorrow(borrowerRaw.date_return);
         return bookProvider.provide(borrowerRaw.book_id)
             .then( book => {
                 borrower.setBook(book);

@@ -38,10 +38,11 @@ class BorrowerBookRepository {
             student_name: borrower.getStudent_name(),
             phone: borrower.getPhone(),
             book_id: borrower.getBook().getId() ? borrower.getBook().getId() : null,
-            date_borrow: new Date()
+            date_borrow: borrower.getDateBorrow(),
+            date_return: borrower.getDateReturn()
         }).where({
             id: borrower.getId(),
-            deleted_at: null
+            deleted_at: 0
         })
     }
 

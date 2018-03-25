@@ -10,7 +10,7 @@
                 </ul>
             </section>
             <section>
-                <form class="form-group" id="edit-borrower" method="post" action="/edit/borrower/{{borrower.getId()}}">
+                <form class="form-group" method="post" action="/edit/borrower/{{borrower.getId()}}">
                     <div class="form-group">
                         <label>Student Code:</label>
                         <input value="{{borrower.getStudent_code()}}" class="form-control" name="student_code" placeholder="student code">
@@ -43,7 +43,7 @@
 
                     <div class="form-group">
                         <label>Date Return:</label>
-                        <input value="{{borrower.getDateReturn()}}" type="date" class="form-control" name="date-return" placeholder="date return">
+                        <input value="{{borrower.getDateReturn()}}" type="date" class="form-control" name="date_return" placeholder="date return">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Edit</button>

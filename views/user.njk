@@ -38,33 +38,34 @@ Home
         </div>
     </div>
 </section>
-<div class="container-fluid">
-    <div class="col-md-10 col-md-offset-2">
-        <form class="panel-body">
-            <section id="all">
-                <div id="book-list" class="row list-group">
 
-                </div>
+<div class="container-fluid">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel-body">
+            <section id="all">
+                <ul id="book-list" class="list-group">
+                </ul>
             </section>
             <script id="bookTemplate" type="text/html">
-                <div class="item col-xs-2 col-lg-2" id="list-book">
-                    <div class="thumbnail">
-                        <img class="group list-group-image" src=":book.images:">
-                        <div height="200px" class="caption">
-                            <p>
-                                <h4 class="group inner list-group-item-heading" style="color: blue">:bookTitle:</h4>
-                                <p class="list-group-item-text">Author : :author:</p>
-                            </p>
-                            <p><a data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-block" id=":book:id"  href="#">
-                                <i class="glyphicon glyphicon-phone"></i>
-                                <span class="hidden-sm hidden-xs">Contact</span>
-                            </a></p>
-                        </div>
-                    </div>
-                </div>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action" id="get-detail" align="center" >
+                        <p><img height="250px" width="200px" class="group list-group-image" src=":book.images:">
+                        <h4 class="group inner list-group-item-heading" style="color: blue">:bookTitle:</h4>
+                        <p class="list-group-item-text">Author : :author:</p>
+                        <p><a data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-block" id=":book:id"  href="#">
+                            <i class="glyphicon glyphicon-phone"></i>
+                            <span class="hidden-sm hidden-xs">Contact</span>
+                        </a></p>
+                    </li>
+                </ul>
             </script>
-        </form>
+
+            <script id="bookTemplate" type="text/html">
+                <option value=":book.id:">:book.title:</option>
+            </script>
+        </div>
     </div>
 </div>
+
 {% endblock %}
 <script src="/javascript/book-script.js"></script>
