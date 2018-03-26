@@ -29,6 +29,10 @@ router.delete('/book/:id',  bookController.removeBook);
 
 
 router.get('/', (req, res) => {
+    res.render('user.njk');
+});
+
+router.get('/admin', (req, res) => {
     res.render('home.njk');
 });
 
